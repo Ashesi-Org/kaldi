@@ -88,11 +88,11 @@ if ! which awk >&/dev/null; then
 fi
 
 pythonok=true
-if ! which python2.7 >&/dev/null; then
-  echo "$0: python2.7 is not installed"
-  add_packages python2.7
-  pythonok=false
-fi
+# if ! which python2.7 >&/dev/null; then
+#   echo "$0: python2.7 is not installed"
+#   add_packages python2.7
+#   pythonok=false
+# fi
 
 if ! which python3 >&/dev/null; then
   echo "$0: python3 is not installed"
@@ -103,12 +103,12 @@ fi
 ( 
 #Use a subshell so that sourcing env.sh does not have an influence on the rest of the script
 [ -f ./env.sh ] && . ./env.sh
-if $pythonok && ! which python2 >&/dev/null; then
-  mkdir -p $PWD/python
-  echo "$0: python2.7 is installed, but the python2 binary does not exist. Creating a symlink and adding this to tools/env.sh"
-  ln -s $(which python2.7) $PWD/python/python2
-  echo "export PATH=$PWD/python:\${PATH}" >> env.sh
-fi
+# if $pythonok && ! which python2 >&/dev/null; then
+#   mkdir -p $PWD/python
+#   echo "$0: python2.7 is installed, but the python2 binary does not exist. Creating a symlink and adding this to tools/env.sh"
+#   ln -s $(which python2.7) $PWD/python/python2
+#   echo "export PATH=$PWD/python:\${PATH}" >> env.sh
+# fi
 
 if [[ -f $PWD/python/.use_default_python && -f $PWD/python/python ]]; then
   rm $PWD/python/python 

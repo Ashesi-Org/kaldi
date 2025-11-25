@@ -108,13 +108,13 @@ fi
 (
 #Use a subshell so that sourcing env.sh does not have an influence on the rest of the script
 [ -f ./env.sh ] && . ./env.sh
-if $pythonok && ! have python2; then
-  mkdir -p $PWD/python
-  echo "$0: python2.7 is installed, but the python2 binary does not exist." \
-       "Creating a symlink and adding this to tools/env.sh"
-  ln -s $(command -v python2.7) $PWD/python/python2
-  echo "export PATH=$PWD/python:\${PATH}" >> env.sh
-fi
+# if $pythonok && ! have python2; then
+#   mkdir -p $PWD/python
+#   echo "$0: python2.7 is installed, but the python2 binary does not exist." \
+#        "Creating a symlink and adding this to tools/env.sh"
+#   ln -s $(command -v python2.7) $PWD/python/python2
+#   echo "export PATH=$PWD/python:\${PATH}" >> env.sh
+# fi
 
 if [[ -f $PWD/python/.use_default_python && -f $PWD/python/python ]]; then
   rm $PWD/python/python

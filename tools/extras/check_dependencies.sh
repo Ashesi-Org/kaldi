@@ -93,11 +93,11 @@ if ! have awk; then
 fi
 
 pythonok=true
-if ! have python2.7; then
-  echo "$0: python2.7 is not installed"
-  add_packages python27 python2.7
-  pythonok=false
-fi
+# if ! have python2.7; then
+#   echo "$0: python2.7 is not installed"
+#   add_packages python27 python2.7
+#   pythonok=false
+# fi
 
 if ! have python3; then
   echo "$0: python3 is not installed"
